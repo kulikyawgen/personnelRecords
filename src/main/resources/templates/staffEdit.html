@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>STO</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<form th:action="@{/staff/edit/{id}(id=${staff.id})}"
+      th:object="${staff}"
+      method="post">
+    <img th:src="@{|/img/${staff.filename}|}" height="128"><br>
+    <input type="text" name="name" th:value="${staff.name}"><br>
+    <input type="text" name="surname" th:value="${staff.surname}"><br>
+    <tr th:each="skill : ${staff.skills}">
+        <td>
+            <input type="checkbox" name="skills" th:value="${skill}">
+            <label th:text="${skill.skillName}"/>
+        </td>
+    </tr>
+    <input type="submit" value="Update User">
+</form>
+</form>
+</body>
+</html>

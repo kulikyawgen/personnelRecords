@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <title>Spring Security Example </title>
+</head>
+<body>
+Make an appointment
+<form th:action="@{/makeAnAppointment}" method="post">
+    <select th:name="producer" >
+        <option  th:each="producer : ${allProducers}" th:value="${producer.title}" th:text="${producer.title}">
+        </option >
+    </select> <br>
+    <!--<div><label> Producer<input type="text" name="producer"/> </label></div>-->
+    <div><label> Model <input type="text" name="car"/> </label></div>
+    <div><input type="submit" value="Add new order"/></div>
+</form>
+</body>
+</html>

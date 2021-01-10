@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>STO</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+<table>
+    <thead>
+    <tr>
+        <th>Producer</th>
+        <th>Model</th>
+        <th>Master</th>
+        <th>Status</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="order : ${all}">
+        <td th:utext="${order.producer}"/>
+        <td  td th:utext="${order.getCar()}"/>
+        <td th:utext="${order.getStaff().name} + ${order.getStaff().surname}"/>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

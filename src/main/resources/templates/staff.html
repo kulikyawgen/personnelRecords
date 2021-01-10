@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <title>STO</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<table>
+    <thead>
+    <tr>
+        <th> Photo</th>
+        <th> Name</th>
+        <th> Surname</th>
+        <th> Skills</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="employee : ${employees}">
+        <td th:if="${employee.filename} ">
+            <img th:src="@{|/img/${employee.filename}|}" height="70"/>
+        </td>
+
+        <!--/* If the product has no image, display default Image. */-->
+        <td th:unless="${employee.filename}">
+            <img th:src="@{/img/no-image.png}" height="70"/>
+        </td>
+        <td th:text="${employee.name}"> Name</td>
+        <td th:text="${employee.surname}"> Surname</td>
+        <td>
+            <table>
+                <tbody>
+                <tr th:each="skill : ${employee.skills}">
+                    <td th:text="${skill.skillName}">1</td>
+                </tr>
+                </tbody>
+            </table>
+        </td>
+        <td><a th:href="@{/staff/edit/{id}(id = ${employee.id})}">edit</a></td>
+        <td><a th:href="@{/staff/delete/{id}(id = ${employee.id})}">delete</a></td>
+    </tr>
+    </tbody>
+</table>
+<a href="staff/add"> Add new employee</a>
+<a href="/"> Home</a>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:action="@{/staff/add}" method="post" enctype="multipart/form-data">
+    <div><label>Photo : <input type="file" name="file"> </label></div>
+    <br>
+    <div><label> Name : <input type="text" name="name"/> </label></div>
+    <br>
+    <div><label> Surname : <input type="text" name="surname"/> </label></div>
+    <br>
+    <table>
+        <tbody>
+        <tr th:each="skill : ${skills}">
+            <td>
+               <input type="checkbox" th:name="${skill}" th:value="${skill}">
+                <label th:text="${skill.skillName}"/>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <div><input type="submit" value="Save"/></div>
+</form>
+</body>
+</html>

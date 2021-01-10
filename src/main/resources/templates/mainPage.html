@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+
+<head>
+    <title>Car Service Station</title>
+</head>
+<body>
+<form th:action="@{/logout}" method="post">
+    <input type="submit" value="Sign Out"/>
+</form>
+    <p>Click <a th:href="@{/staff}">here</a> to see a employees our shop.</p>
+    <p>Click <a th:href="@{/orders}">here</a> to see your orders.</p>
+    <p>Click <a th:href="@{/makeAnAppointment}">here</a> to Make an appointment in our shop.</p>
+</body>
+</html>
